@@ -1,0 +1,340 @@
+/* =====================================================================
+   Financial Liberty University — custom theme
+   Layered on top of Bootstrap 5.3
+   ===================================================================== */
+
+:root {
+    --flu-black:      #0a0a0d;
+    --flu-black-soft: #141118;
+    --flu-panel:      #1a1620;
+    --flu-gold:       #d4af37;
+    --flu-gold-light: #f6e27a;
+    --flu-gold-deep:  #b8860b;
+    --flu-text:       #e9e4d8;
+    --flu-muted:      #b9a97e;
+    --flu-gold-grad:  linear-gradient(135deg, #f6e27a 0%, #d4af37 45%, #b8860b 100%);
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--flu-black);
+    color: var(--flu-text);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.text-gold { color: var(--flu-gold) !important; }
+.text-secondary-gold { color: var(--flu-muted) !important; }
+
+/* ------------------------- Gold buttons ------------------------- */
+.btn-gold {
+    background: var(--flu-gold-grad);
+    color: #1a1206;
+    font-weight: 600;
+    border: none;
+    letter-spacing: .5px;
+    box-shadow: 0 6px 18px rgba(212, 175, 55, .25);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-gold:hover {
+    color: #1a1206;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(212, 175, 55, .45);
+}
+.btn-outline-gold {
+    border: 1px solid var(--flu-gold);
+    color: var(--flu-gold);
+    font-weight: 600;
+    letter-spacing: .5px;
+    background: transparent;
+    transition: all .2s ease;
+}
+.btn-outline-gold:hover {
+    background: var(--flu-gold-grad);
+    color: #1a1206;
+    border-color: transparent;
+}
+
+/* ------------------------- Brand marks ------------------------- */
+.flu-brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 44px; height: 44px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--flu-gold);
+    border: 2px solid var(--flu-gold);
+    border-radius: 10px;
+    background: rgba(212, 175, 55, .08);
+    font-size: .95rem;
+    letter-spacing: 1px;
+}
+.flu-brand-mark.small-mark { width: 34px; height: 34px; font-size: .75rem; }
+.flu-brand-text {
+    font-family: 'Cinzel', serif;
+    color: var(--flu-text);
+    line-height: 1;
+    font-size: .95rem;
+    letter-spacing: 1px;
+}
+.flu-brand-text small { color: var(--flu-muted); font-size: .6rem; letter-spacing: 3px; }
+
+/* ------------------------- Navbar ------------------------- */
+.flu-navbar {
+    background: rgba(10, 10, 13, .78);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, .18);
+    padding-top: .6rem; padding-bottom: .6rem;
+    transition: background .3s ease;
+}
+.flu-navbar.scrolled { background: rgba(10, 10, 13, .96); }
+.flu-navbar .nav-link {
+    color: var(--flu-text) !important;
+    font-size: .82rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: .5rem .85rem !important;
+    position: relative;
+}
+.flu-navbar .nav-link.active,
+.flu-navbar .nav-link:hover { color: var(--flu-gold) !important; }
+.flu-navbar .nav-link.active::after {
+    content: "";
+    position: absolute; left: .85rem; right: .85rem; bottom: 2px;
+    height: 2px; background: var(--flu-gold-grad); border-radius: 2px;
+}
+.btn-enroll { font-size: .8rem; padding: .5rem 1.1rem; }
+.navbar-toggler:focus { box-shadow: none; }
+
+/* ------------------------- Hero ------------------------- */
+.flu-hero {
+    position: relative;
+    background:
+        radial-gradient(circle at 75% 30%, rgba(212,175,55,.18), transparent 45%),
+        linear-gradient(160deg, #0a0a0d 0%, #16121b 55%, #0a0a0d 100%);
+    overflow: hidden;
+}
+.flu-hero-overlay {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(circle at 80% 60%, rgba(184,134,11,.20), transparent 50%);
+    pointer-events: none;
+}
+.flu-hero-copy { padding-top: 60px; }
+.flu-crest {
+    width: 96px; height: 110px;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, #1e1a12, #0d0b07);
+    border: 2px solid var(--flu-gold);
+    border-radius: 12px 12px 50% 50% / 12px 12px 30% 30%;
+    box-shadow: 0 0 30px rgba(212,175,55,.35);
+}
+.flu-crest span {
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.9rem;
+    background: var(--flu-gold-grad); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent;
+}
+.flu-hero-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02;
+    color: #f4f1e8;
+    text-shadow: 0 4px 24px rgba(0,0,0,.6);
+    margin-bottom: 1rem;
+}
+.flu-hero-title .text-gold {
+    background: var(--flu-gold-grad); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent;
+}
+.flu-hero-sub { font-size: clamp(1rem, 2.4vw, 1.7rem); letter-spacing: 10px; color: var(--flu-muted); }
+.flu-motto { letter-spacing: 3px; font-size: .8rem; color: var(--flu-text); margin-bottom: .6rem; }
+.flu-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--flu-gold-light);
+    max-width: 430px;
+}
+.flu-journey-btn { display: inline-flex; align-items: center; text-align: left; padding: .7rem 1.4rem; }
+.flu-journey-btn small { font-size: .55rem; letter-spacing: 1px; font-weight: 600; }
+.flu-journey-btn strong { font-size: 1rem; letter-spacing: 1px; }
+.watch-play {
+    width: 46px; height: 46px; border-radius: 50%;
+    display: grid; place-items: center;
+    border: 2px solid var(--flu-gold); color: var(--flu-gold);
+    font-size: 1.3rem;
+    transition: all .2s ease;
+}
+.watch-link:hover .watch-play { background: var(--flu-gold); color: #0a0a0d; }
+
+.flu-founder-frame {
+    position: relative;
+    aspect-ratio: 4/5;
+    max-width: 420px; margin: 0 auto;
+    display: grid; place-items: center;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(212,175,55,.20), transparent 60%),
+        linear-gradient(160deg, #201a12, #0c0a07);
+    border: 1px solid rgba(212,175,55,.35);
+    box-shadow: 0 0 60px rgba(212,175,55,.18);
+}
+.flu-founder-frame > i { font-size: 8rem; color: rgba(212,175,55,.55); }
+.flu-founder-name { font-family: 'Great Vibes', cursive; color: var(--flu-gold-light); font-size: 2rem; margin-top: .5rem; }
+.flu-founder-role { color: var(--flu-muted); letter-spacing: 2px; font-size: .8rem; }
+
+/* ------------------------- Sections ------------------------- */
+.flu-section { padding: 4rem 0; }
+.section-eyebrow {
+    font-family: 'Cinzel', serif;
+    color: var(--flu-gold);
+    letter-spacing: 3px;
+    font-size: .85rem;
+    text-transform: uppercase;
+}
+.section-title {
+    font-family: 'Cinzel', serif;
+    color: var(--flu-gold);
+    letter-spacing: 2px;
+    font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+    margin-bottom: 1.5rem;
+}
+
+/* ------------------------- Program cards ------------------------- */
+.flu-program-card {
+    background: linear-gradient(160deg, var(--flu-panel), #0d0b10);
+    border: 1px solid rgba(212,175,55,.22);
+    border-radius: 12px;
+    padding: 1.4rem .8rem;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.flu-program-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--flu-gold);
+    box-shadow: 0 14px 34px rgba(0,0,0,.55), 0 0 22px rgba(212,175,55,.2);
+}
+.flu-program-icon {
+    font-size: 2.4rem;
+    background: var(--flu-gold-grad); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: .6rem;
+}
+.flu-program-title {
+    font-family: 'Cinzel', serif;
+    font-size: .95rem; letter-spacing: 1px;
+    color: var(--flu-text); margin-bottom: .3rem;
+}
+.flu-program-desc { font-size: .72rem; color: var(--flu-muted); margin: 0; }
+
+/* ------------------------- Features ------------------------- */
+.flu-feature { padding: 1rem .5rem; }
+.flu-feature-icon {
+    font-size: 2rem; color: var(--flu-gold);
+    margin-bottom: .5rem;
+}
+.flu-feature-title {
+    font-size: .78rem; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--flu-text); margin: 0;
+}
+
+/* ------------------------- Quote ------------------------- */
+.flu-quote {
+    padding: 3.5rem 0;
+    background:
+        linear-gradient(rgba(10,10,13,.82), rgba(10,10,13,.82)),
+        radial-gradient(circle at 30% 50%, rgba(212,175,55,.25), transparent 60%),
+        linear-gradient(120deg, #17130d, #0a0a0d);
+    border-top: 1px solid rgba(212,175,55,.15);
+    border-bottom: 1px solid rgba(212,175,55,.15);
+}
+.flu-quote blockquote {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: #f4f1e8;
+    position: relative;
+}
+.flu-quote-mark { color: var(--flu-gold); font-size: 2.4rem; vertical-align: -.4rem; margin-right: .4rem; }
+.flu-quote-author { color: var(--flu-muted); font-style: normal; letter-spacing: 1px; }
+
+/* ------------------------- Stats ------------------------- */
+.flu-stats {
+    padding: 2.6rem 0;
+    background: linear-gradient(90deg, #0d0b07, #16110a, #0d0b07);
+}
+.flu-stat { position: relative; }
+.flu-stat-value {
+    display: block;
+    font-family: 'Cinzel', serif; font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    background: var(--flu-gold-grad); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+.flu-stat-label {
+    display: block;
+    font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--flu-muted); margin-top: .4rem;
+}
+.flu-stats .col-6:not(:last-child) .flu-stat::after,
+.flu-stats .col-md-3:not(:last-child) .flu-stat::after { content: none; }
+
+/* ------------------------- About founder ------------------------- */
+.flu-about {
+    padding: 3rem 0;
+    background: linear-gradient(160deg, #120f16, #0a0a0d);
+    border-top: 1px solid rgba(212,175,55,.15);
+}
+.flu-about-photo {
+    aspect-ratio: 16/10;
+    display: grid; place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(160deg, #241d13, #0c0a07);
+    border: 1px solid rgba(212,175,55,.3);
+}
+.flu-about-photo > i { font-size: 4.5rem; color: rgba(212,175,55,.6); }
+.flu-about-name { font-family: 'Cinzel', serif; color: var(--flu-text); font-size: 1.4rem; }
+.flu-about-text { color: var(--flu-muted); font-size: .9rem; }
+
+.footer-signature { font-family: 'Great Vibes', cursive; color: var(--flu-gold-light); font-size: 1.6rem; }
+.footer-signature.huge { font-size: 2.6rem; }
+
+/* ------------------------- Footer ------------------------- */
+.flu-footer {
+    background: linear-gradient(180deg, #0a0a0d, #06060a);
+    border-top: 1px solid rgba(212,175,55,.2);
+    padding: 1.5rem 0 1rem;
+}
+.footer-heading { font-family: 'Cinzel', serif; color: var(--flu-gold); letter-spacing: 2px; }
+.footer-divider { border-color: rgba(212,175,55,.2); }
+.flu-social {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--flu-gold);
+    border: 1px solid rgba(212,175,55,.4);
+    transition: all .2s ease;
+    text-decoration: none;
+}
+.flu-social:hover { background: var(--flu-gold-grad); color: #0a0a0d; transform: translateY(-3px); }
+
+/* ------------------------- Back to top ------------------------- */
+.flu-to-top {
+    position: fixed; right: 22px; bottom: 22px;
+    width: 46px; height: 46px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--flu-gold-grad); color: #0a0a0d;
+    box-shadow: 0 6px 18px rgba(212,175,55,.4);
+    opacity: 0; visibility: hidden; transform: translateY(12px);
+    transition: all .3s ease; z-index: 1030; text-decoration: none;
+}
+.flu-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* ------------------------- Reveal on scroll ------------------------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 991.98px) {
+    .flu-navbar { background: rgba(10,10,13,.96); }
+    .flu-hero-copy { padding-top: 90px; }
+}
